@@ -106,3 +106,14 @@ export NVM_DIR="$HOME/.nvm"
 
 export PNPM_HOME="/home/rowdie/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+export DENO_INSTALL="/home/rowdie/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+# personal config
+
+# aliases
+alias mkdirdate="mkdir $(date +%d-%m-%Y)"
+alias rmf="rm -rf"
+alias gac="git add . && git commit -m"
+alias gp="git push" 

@@ -1,0 +1,16 @@
+#!/bin/bash
+distro = $( grep '^NAME' /etc/os-release | cut -d = -f 2 | tr -d '"' )
+
+if [[ $distro == "Ubuntu"]];then
+    echo "Ubuntu detected"
+    echo "Installing zsh"
+    sudo apt install zsh
+    echo "Installing oh-my-zsh"
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    # create folder structure
+    echo "Creating folder structure"
+    mkdir -p ~/programming
+fi
+
+echo "Done!"

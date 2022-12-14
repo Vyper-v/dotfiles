@@ -1,3 +1,5 @@
 [user]
 	email = davidgomez2924@gmail.com
 	name = David Gomez
+[core]
+	editor = code -w

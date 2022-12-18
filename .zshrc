@@ -113,9 +113,22 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 # personal config
 
 # aliases
-alias mkdirdate="mkdir $(date +%d-%m-%Y)"
+alias mkdirtoday="mkdir $(date +%d-%m-%Y)"
 alias rmf="rm -rf"
-alias gac="git add . && git commit -m"
-alias gp="git push" 
-alias gup="git pull"
-alias yadmup="yadm add -u && yadm commit -m \"$(date +%d-%m-%Y)\""
+function gitup() {
+    git add .
+    git commit -a -m "$1"
+    git push
+}
+
+function yadmup(){
+    local msg=${1:-"$(date +%d-%m-%Y)"}
+    yadm add -u
+    yadm commit -a -m "$msg"
+    yadm push
+}
+
+function test(){
+    local msg=${1:-"test"}
+    echo "$msg"
+}

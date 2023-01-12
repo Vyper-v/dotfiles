@@ -1,10 +1,13 @@
 #!/bin/bash
 distro = $( grep '^NAME' /etc/os-release | cut -d = -f 2 | tr -d '"' )
 
-if [[ $distro == "Ubuntu"]];then
-    echo "Ubuntu detected"
-
-
+if [[ $distro == "Ubuntu" || $distro == "Debian" ]];then
+    echo "$distro detected"
+    sudo apt-get update
+    
+    echo "Installing wget/curl"
+    sudo apt-get install wget curl
+    
     echo "Installing zsh"
     sudo apt-get install zsh
     
@@ -13,11 +16,11 @@ if [[ $distro == "Ubuntu"]];then
     
 
     echo "installing node version manager (nvm)"
-    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
     echo "installing neovim"
     sudo apt-get install software-properties-common
-    sudo apt install python3-neovim
+    sudo apt-get install python3-neovim
     sudo add-apt-repository ppa:neovim-ppa/stable
     sudo apt-get update
     sudo apt-get install neovim

@@ -8,8 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
-SPACESHIP_PACKAGE_SHOW=false
+ZSH_THEME="robbyrussell"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -99,36 +99,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PNPM_HOME="/home/rowdie/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-export PATH=$PATH:/usr/local/go/bin
-export DENO_INSTALL="/home/rowdie/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
-# personal config
-
-# aliases
-alias mkdirtoday="mkdir $(date +%d-%m-%Y)"
-alias rmf="rm -rf"
-function gitup() {
-    git add .
-    git commit -a -m "$1"
-    git push
-}
-
-function yadmup(){
-    local msg=${1:-"$(date +%d-%m-%Y)"}
-    yadm add -u
-    yadm commit -a -m "$msg"
-    yadm push
-}
-
-function test(){
-    local msg=${1:-"test"}
-    echo "$msg"
-}
